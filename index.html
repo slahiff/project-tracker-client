@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Project Tracker</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,34 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Project Tracker</h1>
+      <div id="message" class="message"></div>
+        <header class="before-auth">
+          <h5>Sign In</h5>
+            <form id="sign-in">
+              <input type="email" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <button class="btn btn-primary">Submit</button>
+            </form>
+          <h5>Not a member? Sign Up Here!</h5>
+            <form id="sign-up">
+              <input type="email" name="credentials[email]" placeholder="Email">
+              <input type="password" name="[credentials[password]" placeholder="Password">
+              <input type="password" name="[credentials[password_confirmation]" placeholder="Password confirmation">
+              <button class="btn btn-primary">Submit</button>
+            </form>
+        </header>
+        <section class="after-auth">
+          <h5>Change Password</h5>
+          <form id="change-password">
+            <input type="text" name="passwords[old]" placeholder="Current Password">
+            <input type="text" name="passwords[new]" placeholder="New Password">
+            <button class="btn btn-primary">Submit</button>
+          </form>
+
+          <form id="sign-out">
+            <button class="btn btn-secondary">Sign Out</button>
+          </form>
+        </section>
     </body>
 </html>
