@@ -1,1 +1,25 @@
 @import '~bootstrap/scss/bootstrap';
+
+$error-bgr: #ebcece;
+$error-text: #f00;
+$success-bgr: #c6f5d0;
+$success-text: #1f572b;
+
+
+.failure {
+  background-color: $error-bgr;
+  color: $error-text;
+  display: inline-block;
+  font-size: 1em;
+  font-style: italic;
+  padding: 0 5px;
+}
+
+.success {
+  background-color: $success-bgr;
+  color: $success-text;
+  display: inline-block;
+  font-size: 1em;
+  font-style: italic;
+  padding: 0 5px;
+}
