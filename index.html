@@ -11,7 +11,7 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body>
+    <body class="container--fluid">
       <h1>Project Tracker</h1>
       <div id="message" class="message"></div>
         <header class="before-auth">
@@ -30,20 +30,78 @@
             </form>
         </header>
         <section class="after-auth">
-          <h5>Change Password</h5>
-          <form id="change-password">
-            <input type="text" name="passwords[old]" placeholder="Current Password">
-            <input type="text" name="passwords[new]" placeholder="New Password">
-            <button class="btn btn-primary">Submit</button>
-          </form>
-        <main>
-          <h5>View All Projects</h5>
-          <button id="index-projects" class="btn btn-primary">Get Projects</button>
-        </main>
 
           <form id="sign-out">
             <button class="btn btn-secondary">Sign Out</button>
           </form>
+        <hr>
+        <main>
+          <section>
+            <button id="index" class="btn btn-primary" type="submit">View All Projects</button>
+        <hr>
+          <h4>View All My Projects</h4>
+            <form id="show-user-projects">
+              <button class="btn btn-primary">Get My Projects</button>
+            </form>
+        <hr>
+          <h4>View a Project</h4>
+            <form id="show-project">
+              <label for="project-id">Enter an ID</label>
+              <input name="project[id]" id="project-id" type="number" placeholder="Project ID">
+              <button class="btn btn-primary">View a Project</button>
+            </form>
+        <hr>
+          <h4>Delete a Project</h4>
+            <form id="destroy-project">
+              <label for="project-id-delete">Enter an ID</label>
+              <input name="project[id]" id="project-id-id" type="number" placeholder="Project ID">
+              <button class="btn btn-danger">Delete</button>
+            </form>
+        <hr>
+          <h4>Update a Project</h4>
+            <form id="update-project">
+              <p>Enter the project ID of the project you wish to update.</p>
+              <input name="project[id]" id="project-id-update" type="number" placeholder="Project ID" required="true">
+              <input name="project[name]" type="text" placeholder="Title">
+              <input name="project[description]" type="text" placeholder="Description">
+              <input name="project[status]" type="text" placeholder="Status" list="status-list">
+                <datalist id="status-list">
+                  <option value="Not Started">
+                  <option value="Under Review">
+                  <option value="In Progress">
+                  <option value="Complete">
+                  <option value="On Hold">
+                </datalist>
+              <input name="project[owner]" type="number" placeholder="Owner ID">
+            <button type="submit">Create Project</button>
+          </form>
+        <hr>
+          <h4>Create a Project</h4>
+          <form id="create-project">
+            <input name="project[name]" type="text" placeholder="Title" required="true">
+            <input name="project[description]" type="text" placeholder="Description">
+            <input name="project[status]" type="text" placeholder="Status" list="status-list" required="true">
+              <datalist id="status-list">
+                <option value="Not Started">
+                <option value="Under Review">
+                <option value="In Progress">
+                <option value="Complete">
+                <option value="On Hold">
+              </datalist>
+            <input name="project[owner]" type="number" placeholder="Owner ID">
+          <button type="submit">Create Project</button>
+        </form>
+      </section>
+      <section class="after-auth">
+      <hr>
+        <h5>Change Password</h5>
+        <form id="change-password">
+          <input type="text" name="passwords[old]" placeholder="Current Password">
+          <input type="text" name="passwords[new]" placeholder="New Password">
+          <button class="btn btn-primary">Submit</button>
+        </form>
+      </section>
+        </main>
         </section>
     </body>
 </html>

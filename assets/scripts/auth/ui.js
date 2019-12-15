@@ -14,7 +14,7 @@ const onFailure = message => {
   $('#message')
     .removeClass('success')
     .addClass('failure')
-    .text(message)
+    .text(message).hide()
   $('form').trigger('reset')
 }
 

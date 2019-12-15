@@ -10,6 +10,40 @@ const indexProjects = () => {
   })
 }
 
+const showProject = formData => {
+  return $.ajax({
+    url: config.apiUrl + '/projects/' + formData.project.id,
+    method: 'GET'
+  })
+}
+
+const createProject = formData => {
+  return $.ajax({
+    url: config.apiUrl + '/projects',
+    method: 'POST',
+    data: formData
+  })
+}
+
+const destroyProject = formData => {
+  return $.ajax({
+    url: config.apiUrl + '/projects/' + formData.project.id,
+    method: 'DELETE'
+  })
+}
+
+const updateProject = formData => {
+  return $.ajax({
+    url: config.apiUrl + '/projects/' + formData.project.id,
+    method: 'PATCH',
+    data: formData
+  })
+}
+
 module.exports = {
-  indexProjects
+  indexProjects,
+  showProject,
+  createProject,
+  destroyProject,
+  updateProject
 }
