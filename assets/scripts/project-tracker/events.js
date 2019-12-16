@@ -11,13 +11,14 @@ const onIndexProjects = () => {
 }
 
 const onShowProject = event => {
+  console.log('clicky!')
   event.preventDefault()
   const form = event.target
   const projectData = getFormFields(form)
 
   api.showProject(projectData)
-    .then(console.log)
-    .catch(console.error)
+    .then(ui.onShowProjectSuccess)
+    .catch(ui.onShowProjectFailure)
 }
 
 const onCreateProject = event => {
@@ -31,7 +32,7 @@ const onCreateProject = event => {
 }
 
 const addHandlers = event => {
-  $('#index-projects').on('submit', onIndexProjects)
+  $('#index').on('click', onIndexProjects)
   $('#show-project').on('submit', onShowProject)
   $('#create-project').on('submit', onCreateProject)
 }

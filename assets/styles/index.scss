@@ -1,10 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 
+$background-color: #f0f0f0;
 $error-bgr: #ebcece;
 $error-text: #f00;
 $success-bgr: #c6f5d0;
 $success-text: #1f572b;
 
+body {
+  background-color: $background-color;
+}
 
 .failure {
   background-color: $error-bgr;

@@ -36,10 +36,9 @@
           </form>
         <hr>
         <main>
-          <section>
-            <button id="index" class="btn btn-primary" type="submit">View All Projects</button>
-        <hr>
-          <h4>View All My Projects</h4>
+          <section class="after-auth">
+          <h4>View Projects</h4>
+            <button id="index" class="btn btn-primary">View All Projects</button>
             <form id="show-user-projects">
               <button class="btn btn-primary">Get My Projects</button>
             </form>
@@ -65,7 +64,7 @@
               <input name="project[name]" type="text" placeholder="Title">
               <input name="project[description]" type="text" placeholder="Description">
               <input name="project[status]" type="text" placeholder="Status" list="status-list">
-                <datalist id="status-list">
+                <datalist id="status-list-update">
                   <option value="Not Started">
                   <option value="Under Review">
                   <option value="In Progress">
@@ -73,7 +72,7 @@
                   <option value="On Hold">
                 </datalist>
               <input name="project[owner]" type="number" placeholder="Owner ID">
-            <button type="submit">Create Project</button>
+            <button type="submit" class="btn btn-success">Update Project</button>
           </form>
         <hr>
           <h4>Create a Project</h4>
@@ -81,7 +80,7 @@
             <input name="project[name]" type="text" placeholder="Title" required="true">
             <input name="project[description]" type="text" placeholder="Description">
             <input name="project[status]" type="text" placeholder="Status" list="status-list" required="true">
-              <datalist id="status-list">
+              <datalist id="status-list-create">
                 <option value="Not Started">
                 <option value="Under Review">
                 <option value="In Progress">
@@ -89,9 +88,23 @@
                 <option value="On Hold">
               </datalist>
             <input name="project[owner]" type="number" placeholder="Owner ID">
-          <button type="submit">Create Project</button>
+          <button type="submit" class="btn btn-success">Create Project</button>
         </form>
       </section>
+    <hr>
+        <table id="table" class="table table-striped table-bordered table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Project ID</th>
+              <th scope="col">Title</th>
+              <th scope="col">Status</th>
+              <th scope="col">Owner</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+      </table>
+    </main>
       <section class="after-auth">
       <hr>
         <h5>Change Password</h5>
@@ -101,7 +114,6 @@
           <button class="btn btn-primary">Submit</button>
         </form>
       </section>
-        </main>
-        </section>
+      </section>
     </body>
 </html>
