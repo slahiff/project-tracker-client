@@ -31,6 +31,7 @@ const onShowProjectSuccess = data => {
   const num = 1
   const id = project.id
   const name = project.name
+  const status = project.status
   const owner = project.user.email
 
   $('#table').append('<tr><th scope="row">' + num + '</th>' + '<td>' + id + '</td><td>' + name + '</td><td>' + status + '</td><td>' + owner + '</td></tr>')
