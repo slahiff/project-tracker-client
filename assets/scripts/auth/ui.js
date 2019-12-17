@@ -1,20 +1,39 @@
 'use strict'
 
 const store = require('../store')
+$('.after-auth').hide()
+$('.before-auth').show()
 
 const onSuccess = message => {
   $('#message')
-    .removeClass('failure')
-    .addClass('success')
-    .text(message)
+    .removeClass('alert-danger', 'alert-success')
+    .addClass('alert-success')
+    .html(message + `<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span></button>`)
+    .show()
+
+  setTimeout(function () {
+    $('#message').fadeOut('fast')
+  }, 3000)
+
   $('form').trigger('reset')
+}
+
+const dismissAlert = () => {
+  $('.alert').alert('close')
 }
 
 const onFailure = message => {
   $('#message')
-    .removeClass('success')
-    .addClass('failure')
-    .text(message).hide()
+    .removeClass('alert-success')
+    .addClass('alert-danger')
+    .html(message + `<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span></button>`)
+
+  setTimeout(function () {
+    $('#message').fadeOut('fast')
+  }, 3000)
+
   $('form').trigger('reset')
 }
 
@@ -28,7 +47,7 @@ const onSignupFailure = () => {
 
 const onSignInSuccess = responseData => {
   store.user = responseData.user
-  console.log(store)
+  // console.log(store)
   onSuccess('You successfully signed in!')
   $('.after-auth').show()
   $('.before-auth').hide()
@@ -67,5 +86,6 @@ module.exports = {
   onChangePasswordSuccess,
   onChangePasswordFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  dismissAlert
 }

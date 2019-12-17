@@ -1,6 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 
 $background-color: #f0f0f0;
+$black: #000;
+$div-bgr-color: #ede2d8;
 $error-bgr: #ebcece;
 $error-text: #f00;
 $success-bgr: #c6f5d0;
@@ -8,22 +10,67 @@ $success-text: #1f572b;
 
 body {
   background-color: $background-color;
+  margin: 0 20px 20px;
+  text-align: center;
 }
 
-.failure {
-  background-color: $error-bgr;
-  color: $error-text;
-  display: inline-block;
-  font-size: 1em;
-  font-style: italic;
-  padding: 0 5px;
-}
-
-.success {
+h1 {
   background-color: $success-bgr;
-  color: $success-text;
+  border-radius: 25px;
+  margin: 20px auto;
+  padding: 10px 0;
+  text-align: center;
+  width: 67%;
+}
+
+.alert-danger {
+  border: 1px solid $black;
+  border-radius: 25px;
   display: inline-block;
   font-size: 1em;
   font-style: italic;
-  padding: 0 5px;
+  padding: 5px 25px;
+}
+
+.alert-success {
+  border: 1px solid $black;
+  border-radius: 25px;
+  display: inline-block;
+  font-size: 1em;
+  font-style: italic;
+  padding: 5px 25px;
+}
+
+.before-auth {
+  text-align: center;
+}
+
+.btn-update {
+  margin-top: 15px;
+}
+
+.sign-out {
+  display: block;
+  float: right;
+}
+
+.table {
+  margin-top: 15px;
+}
+
+.view {
+  align-content: center;
+  align-items: center;
+  background-color: $div-bgr-color;
+  border: 1px solid $black;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.view-btn {
+  margin: 20px;
 }

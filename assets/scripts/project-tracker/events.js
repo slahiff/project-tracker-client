@@ -5,13 +5,21 @@ const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 
 const onIndexProjects = () => {
+  event.preventDefault()
   api.indexProjects()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
 }
 
+const onShowUserProjects = event => {
+  event.preventDefault()
+
+  api.indexProjects()
+    .then(ui.onShowUserProjectsSuccess)
+    .catch(ui.onShowUserProjectsFailure)
+}
+
 const onShowProject = event => {
-  console.log('clicky!')
   event.preventDefault()
   const form = event.target
   const projectData = getFormFields(form)
@@ -27,12 +35,18 @@ const onCreateProject = event => {
   const projectData = getFormFields(form)
 
   api.createProject(projectData)
-    .then(console.log)
-    .catch(console.error)
+    .then(ui.onCreateProjectSuccess)
+    .catch(ui.onCreateProjectFailure)
+}
+
+// loads page with project index
+window.onload = function () {
+  onIndexProjects()
 }
 
 const addHandlers = event => {
   $('#index').on('click', onIndexProjects)
+  $('#show-user-projects').on('click', onShowUserProjects)
   $('#show-project').on('submit', onShowProject)
   $('#create-project').on('submit', onCreateProject)
 }
