@@ -51,12 +51,12 @@
       <div class="after-auth">
         <h4>Update a Project</h4>
           <form id="update-project">
-            <p>Enter the project ID of the project you wish to update.</p>
+            <p>Enter the project ID of the project you wish to update. Users can only update projects where they are the assigned owner.</p>
             <input name="project[id]" id="project-id-update" type="number" placeholder="Project ID" required>
             <input name="project[name]" type="text" placeholder="Title">
-            <textarea name="Description" placeholder="Project Description"></textarea>
-            <input name="project[status]" type="text" placeholder="Status" list="status-list" required>
-              <select id="status-list-create">
+            <!-- <textarea name="Description" placeholder="Project Description"></textarea> -->
+              <input name="project[description]" type="text" placeholder="Description">
+              <select name="project[status]" id="status-list-create">
                 <option value="Not Started">Not Started</option>
                 <option value="Under Review">Under Review</option>
                 <option value="In Progress">In Progress</option>
@@ -67,12 +67,12 @@
         </form>
         <hr>
           <h4>Create a Project</h4>
+          <p>Create a new project. Projects will automatically be assigned to the user.</p>
           <form id="create-project">
             <input name="project[name]" type="text" placeholder="Title" required>
-            <!-- <input name="project[description]" type="text" placeholder="Description"> -->
-            <textarea name="Description" placeholder="Project Description"></textarea>
-            <input name="project[status]" type="text" placeholder="Status" list="status-list" required>
-              <select>
+            <input name="project[description]" type="text" placeholder="Description">
+            <!-- <textarea name="Description" placeholder="Project Description"></textarea> -->
+              <select name=project[status] required>
                 <option value="Not Started">Not Started</option>
                 <option value="Under Review">Under Review</option>
                 <option value="In Progress">In Progress</option>

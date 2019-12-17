@@ -109,6 +109,22 @@ const onCreateProjectFailure = error => {
     .text(error)
 }
 
+const onUpdateProjectSuccess = data => {
+  onCrudSuccess('Project successfully updated!')
+}
+
+const onUpdateProjectFailure = data => {
+  onCrudFailure('Error: Project could not be updated.')
+}
+
+const onDeleteProjectSuccess = data => {
+  onCrudSuccess('Project successfully deleted!')
+}
+
+const onDeleteProjectFailure = data => {
+  onCrudFailure('Error: Project could not be deleted.')
+}
+
 module.exports = {
   onCrudSuccess,
   onCrudFailure,
@@ -117,7 +133,11 @@ module.exports = {
   onShowProjectFailure,
   onShowProjectSuccess,
   onCreateProjectSuccess,
-  onCreateProjectFailure
+  onCreateProjectFailure,
+  onUpdateProjectSuccess,
+  onUpdateProjectFailure,
+  onDeleteProjectSuccess,
+  onDeleteProjectFailure
   // onShowUserProjectsFailure,
   // onShowUserProjectsSuccess
 }

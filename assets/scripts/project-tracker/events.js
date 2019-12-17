@@ -39,6 +39,26 @@ const onCreateProject = event => {
     .catch(ui.onCreateProjectFailure)
 }
 
+const onUpdateProject = event => {
+  event.preventDefault()
+  const form = event.target
+  const projectData = getFormFields(form)
+
+  api.updateProject(projectData)
+    .then(ui.onUpdateProjectSuccess)
+    .catch(ui.onUpdateProjectFailure)
+}
+
+const onDeleteProject = event => {
+  event.preventDefault()
+  const form = event.target
+  const projectData = getFormFields(form)
+
+  api.destroyProject(projectData)
+    .then(ui.onDeleteProjectSuccess)
+    .catch(ui.onDeleteProjectFailure)
+}
+
 // loads page with project index
 window.onload = function () {
   onIndexProjects()
@@ -49,6 +69,8 @@ const addHandlers = event => {
   $('#show-user-projects').on('click', onShowUserProjects)
   $('#show-project').on('submit', onShowProject)
   $('#create-project').on('submit', onCreateProject)
+  $('#update-project').on('submit', onUpdateProject)
+  $('#destroy-project').on('submit', onDeleteProject)
 }
 
 module.exports = {
