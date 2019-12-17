@@ -8,6 +8,7 @@
 ### Technologies Used
 - JavaScript
 - jQuery
+- AJAX
 - Bootstrap
 - HTML
 - Sass
