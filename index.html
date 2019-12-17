@@ -17,15 +17,15 @@
         <header class="before-auth">
           <h5>Sign In</h5>
             <form id="sign-in">
-              <input type="email" name="credentials[email]" placeholder="Email" required="true">
-              <input type="password" name="credentials[password]" placeholder="Password" required="true">
+              <input type="email" name="credentials[email]" placeholder="Email" required>
+              <input type="password" name="credentials[password]" placeholder="Password" required>
               <button class="btn btn-primary">Submit</button>
             </form>
           <h5>Not a member? Sign Up Here!</h5>
             <form id="sign-up">
-              <input type="email" name="credentials[email]" placeholder="Email" required="true">
-              <input type="password" name="[credentials[password]" placeholder="Password" required="true">
-              <input type="password" name="[credentials[password_confirmation]" placeholder="Password confirmation" required="true">
+              <input type="email" name="credentials[email]" placeholder="Email" required>
+              <input type="password" name="[credentials[password]" placeholder="Password" required>
+              <input type="password" name="[credentials[password_confirmation]" placeholder="Password confirmation" required>
               <button class="btn btn-primary">Submit</button>
             </form>
         </header>
@@ -44,7 +44,7 @@
           <h4>View a Project</h4>
             <form id="show-project">
               <label for="project-id">Enter an ID</label>
-              <input name="project[id]" id="project-id" type="number" placeholder="Project ID" required="true">
+              <input name="project[id]" id="project-id" type="number" placeholder="Project ID" required>
               <button class="btn btn-primary">View a Project</button>
             </form>
         <hr>
@@ -52,39 +52,40 @@
         <h4>Update a Project</h4>
           <form id="update-project">
             <p>Enter the project ID of the project you wish to update.</p>
-            <input name="project[id]" id="project-id-update" type="number" placeholder="Project ID" required="true">
+            <input name="project[id]" id="project-id-update" type="number" placeholder="Project ID" required>
             <input name="project[name]" type="text" placeholder="Title">
-            <input name="project[description]" type="text" placeholder="Description">
-            <input name="project[status]" type="text" placeholder="Status" list="status-list">
-              <datalist id="status-list-update">
-                <option value="Not Started">
-                <option value="Under Review">
-                <option value="In Progress">
-                <option value="Complete">
-                <option value="On Hold">
-              </datalist>
+            <textarea name="Description" placeholder="Project Description"></textarea>
+            <input name="project[status]" type="text" placeholder="Status" list="status-list" required>
+              <select id="status-list-create">
+                <option value="Not Started">Not Started</option>
+                <option value="Under Review">Under Review</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Complete">Complete</option>
+                <option value="On Hold">On Hold</option>
+              </select>
           <button type="submit" class="btn btn-success btn-update">Update Project</button>
         </form>
         <hr>
           <h4>Create a Project</h4>
           <form id="create-project">
-            <input name="project[name]" type="text" placeholder="Title" required="true">
-            <input name="project[description]" type="text" placeholder="Description">
-            <input name="project[status]" type="text" placeholder="Status" list="status-list" required="true">
-              <datalist id="status-list-create">
-                <option value="Not Started">
-                <option value="Under Review">
-                <option value="In Progress">
-                <option value="Complete">
-                <option value="On Hold">
-              </datalist>
+            <input name="project[name]" type="text" placeholder="Title" required>
+            <!-- <input name="project[description]" type="text" placeholder="Description"> -->
+            <textarea name="Description" placeholder="Project Description"></textarea>
+            <input name="project[status]" type="text" placeholder="Status" list="status-list" required>
+              <select>
+                <option value="Not Started">Not Started</option>
+                <option value="Under Review">Under Review</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Complete">Complete</option>
+                <option value="On Hold">On Hold</option>
+              </select>
           <button type="submit" class="btn btn-success">Create Project</button>
         </form>
         <hr>
         <h4>Delete a Project</h4>
           <form id="destroy-project">
             <label for="project-id-delete">Enter an ID</label>
-            <input name="project[id]" id="project-id-id" type="number" placeholder="Project ID">
+            <input name="project[id]" id="project-id-id" type="number" placeholder="Project ID" required>
             <button class="btn btn-danger">Delete</button>
           </form>
       </div>
@@ -106,7 +107,7 @@
       <hr>
         <h5>Change Password</h5>
         <form id="change-password">
-          <input type="text" name="passwords[old]" placeholder="Current Password">
+          <input type="text" name="passwords[old]" placeholder="Current Password" required>
           <input type="text" name="passwords[new]" placeholder="New Password">
           <button class="btn btn-primary">Submit</button>
         </form>

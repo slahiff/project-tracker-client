@@ -23,6 +23,13 @@ h1 {
   width: 67%;
 }
 
+legend {
+  border: 1px solid $black;
+  display: block;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
 .alert-danger {
   border: 1px solid $black;
   border-radius: 25px;
