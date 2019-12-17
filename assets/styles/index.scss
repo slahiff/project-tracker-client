@@ -81,6 +81,9 @@ p {
   background-color: $black;
   border: 1px solid $white;
   border-radius: 10px;
+  justify-content: center;
+  margin: 0 auto;
+  width: 50%;
 
   h5 {
     color: $white;
