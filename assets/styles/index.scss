@@ -7,6 +7,7 @@ $error-bgr: #ebcece;
 $error-text: #f00;
 $success-bgr: #c6f5d0;
 $success-text: #1f572b;
+$white: #fff;
 
 body {
   background-color: $background-color;
@@ -15,19 +16,23 @@ body {
 }
 
 h1 {
-  background-color: $success-bgr;
+  background-color: $black;
   border-radius: 25px;
+  color: $white;
+  font-family: 'Permanent Marker', sans-serif;
   margin: 20px auto;
   padding: 10px 0;
   text-align: center;
-  width: 67%;
+  width: 26%;
 }
 
-legend {
-  border: 1px solid $black;
-  display: block;
-  padding-left: 2px;
-  padding-right: 2px;
+h4 {
+  font-family: 'Permanent Marker', sans-serif;
+}
+
+p {
+  font-family: 'PT Sans', sans-serif;
+  font-style: italic;
 }
 
 .alert-danger {
@@ -52,8 +57,50 @@ legend {
   text-align: center;
 }
 
-.btn-update {
-  margin-top: 15px;
+.before-auth-wrapper {
+  background-color: $black;
+  border: 1px solid $white;
+  border-radius: 10px;
+
+  h5 {
+    color: $white;
+    font-family: 'Permanent Marker', sans-serif;
+    line-height: 1.5em;
+  }
+}
+.change-pw-wrapper {
+  background-color: $black;
+  border: 1px solid $white;
+  border-radius: 10px;
+
+  h5 {
+    color: $white;
+    font-family: 'Permanent Marker', sans-serif;
+    line-height: 1.5em;
+  }
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  .btn {
+    margin: 15px auto;
+  }
+
+  div {
+    background-color: $white;
+    border: 1px solid $black;
+    border-radius: 25px;
+    flex-basis: 20%;
+    padding: 20px;
+  }
+
+  select {
+    margin-top: 5px;
+  }
 }
 
 .sign-out {
@@ -63,21 +110,4 @@ legend {
 
 .table {
   margin-top: 15px;
-}
-
-.view {
-  align-content: center;
-  align-items: center;
-  background-color: $div-bgr-color;
-  border: 1px solid $black;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 0 auto;
-  width: 50%;
-}
-
-.view-btn {
-  margin: 20px;
 }
