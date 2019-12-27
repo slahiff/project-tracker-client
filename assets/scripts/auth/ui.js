@@ -29,6 +29,7 @@ const onFailure = message => {
     .addClass('alert-danger')
     .html(message + `<button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span></button>`)
+    .show()
 
   setTimeout(function () {
     $('#message').fadeOut('fast')
@@ -47,7 +48,6 @@ const onSignupFailure = () => {
 
 const onSignInSuccess = responseData => {
   store.user = responseData.user
-  // console.log(store)
   onSuccess('You successfully signed in!')
   $('.after-auth').show()
   $('.before-auth').hide()

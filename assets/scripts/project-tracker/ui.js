@@ -1,6 +1,7 @@
 'use strict'
 
-// const store = require('../store')
+const showProjectsTemplate = require('../templates/project-listing.handlebars')
+
 $('.after-auth').hide()
 $('.before-auth').show()
 
@@ -38,22 +39,28 @@ const onIndexFailure = error => {
 }
 
 const onIndexSuccess = data => {
+  const showProjectsHtml = showProjectsTemplate({ projects: data.projects })
+
   $('#table').find('tbody').empty()
+  $('#table').find('tbody').html(showProjectsHtml)
   $('#user-message').empty()
-  $('#message')
+  $('#message').show()
 
-  const projects = data.projects
+  onCrudSuccess('Successfully retrieved all projects.')
 
-  for (let i = 0; i < projects.length; i++) {
-    const num = i + 1
-    const id = projects[i].id
-    const name = projects[i].name
-    const status = projects[i].status
-    const owner = projects[i].user.email
-
-    $('#table').append('<tr><th scope="row">' + num + '</th>' + '<td>' + id + '</td><td>' + name + '</td><td>' + status + '</td><td>' + owner + '</td></tr>')
-    onCrudSuccess('Successfully retrieved all projects.')
-  }
+  // old for loop and jquery
+  // for (let i = 0; i < projects.length; i++) {
+  //   const num = i + 1
+  //   const id = projects[i].id
+  //   const name = projects[i].name
+  //   const status = projects[i].status
+  //   const owner = projects[i].user.email
+  //
+  //   $('#table').append('<tr><th scope="row">' + num + '</th>' +
+  //   '<td>' + id + '</td><td>' + name + '</td><td>' + status + '</td><td>' + owner + '</td></tr>')
+  //
+  //   onCrudSuccess('Successfully retrieved all projects.')
+  // }
 }
 
 // const onShowUserProjectsFailure = error => {

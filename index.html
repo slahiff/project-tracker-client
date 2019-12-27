@@ -106,22 +106,21 @@
     <table id="table" class="table table-striped table-bordered table-hover">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Project ID</th>
           <th scope="col">Title</th>
           <th scope="col">Status</th>
           <th scope="col">Owner</th>
         </tr>
       </thead>
-      <tbody></tbody>
+      <tbody id=tbody></tbody>
     </table>
   </main>
 
     <div class="change-pw-wrapper after-auth">
       <h5>Change Password</h5>
       <form id="change-password">
-        <input type="text" name="passwords[old]" placeholder="Current Password" required>
-        <input type="text" name="passwords[new]" placeholder="New Password">
+        <input type="password" name="passwords[old]" placeholder="Current Password" required>
+        <input type="password" name="passwords[new]" placeholder="New Password">
         <button class="btn btn-primary">Submit</button>
       </form>
       <form id="sign-out">
