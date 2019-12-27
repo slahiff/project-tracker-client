@@ -6,6 +6,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 
 const onIndexProjects = () => {
   event.preventDefault()
+
   api.indexProjects()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)

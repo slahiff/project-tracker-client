@@ -1,6 +1,7 @@
 'use strict'
 
 const showProjectsTemplate = require('../templates/project-listing.handlebars')
+const showProjectTemplate = require('../templates/show-project.handlebars')
 
 $('.after-auth').hide()
 $('.before-auth').show()
@@ -47,61 +48,20 @@ const onIndexSuccess = data => {
   $('#message').show()
 
   onCrudSuccess('Successfully retrieved all projects.')
-
-  // old for loop and jquery
-  // for (let i = 0; i < projects.length; i++) {
-  //   const num = i + 1
-  //   const id = projects[i].id
-  //   const name = projects[i].name
-  //   const status = projects[i].status
-  //   const owner = projects[i].user.email
-  //
-  //   $('#table').append('<tr><th scope="row">' + num + '</th>' +
-  //   '<td>' + id + '</td><td>' + name + '</td><td>' + status + '</td><td>' + owner + '</td></tr>')
-  //
-  //   onCrudSuccess('Successfully retrieved all projects.')
-  // }
 }
-
-// const onShowUserProjectsFailure = error => {
-//   $('#table').find('tbody').append(error)
-// }
-//
-// const onShowUserProjectsSuccess = data => {
-//   $('#table').find('tbody').empty()
-//
-//   const projects = data.projects
-//
-//   const userProjects = projects.filter(onIndexSuccess.user.email => store.user.email)
-//
-//   for (let i = 0; i < userProjects.length; i++) {
-//     const num = i + 1
-//     const id = userProjects[i].id
-//     const name = userProjects[i].name
-//     const status = userProjects[i].status
-//     const owner = userProjects[i].user.email
-//
-//     // const userProjects = projects.filter(owner => store.user.email)
-//
-//     $('#table').append('<tr><th scope="row">' + num + '</th>' + '<td>' + id + '</td><td>' + name + '</td><td>' + status + '</td><td>' + owner + '</td></tr>')
-//   }
-// }
 
 const onShowProjectFailure = () => {
   onCrudFailure('Enter a valid project ID!')
 }
 
 const onShowProjectSuccess = data => {
+  const showProjectHtml = showProjectTemplate({ project: data.project })
+
   $('#table').find('tbody').empty()
+  $('#table').find('tbody').html(showProjectHtml)
+  $('#user-message').empty()
+  $('#message').show()
 
-  const project = data.project
-  const num = 1
-  const id = project.id
-  const name = project.name
-  const status = project.status
-  const owner = project.user.email
-
-  $('#table').append('<tr><th scope="row">' + num + '</th>' + '<td>' + id + '</td><td>' + name + '</td><td>' + status + '</td><td>' + owner + '</td></tr>')
   onCrudSuccess('You successfully retrieved a project!')
 }
 
