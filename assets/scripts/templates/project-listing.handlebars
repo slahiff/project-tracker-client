@@ -5,5 +5,7 @@
     <td>{{project.name}}</td>
     <td>{{project.status}}</td>
     <td>{{project.user.email}}</td>
+    <td>{{project.created_at.strftime("%m %e %Y %l %M %S %p")}}</td>
+    <td>{{project.updated_at.strftime("%m %e %Y %l %M %S %p")}}</td>
   </tr>
 {{/each}}
