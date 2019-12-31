@@ -1,11 +1,10 @@
 {{#each projects as |project|}}
-  <!-- {{log project}} -->
   <tr data-id="{{project.id}}">
     <td>{{project.id}}</td>
     <td>{{project.name}}</td>
     <td>{{project.status}}</td>
     <td>{{project.user.email}}</td>
-    <td>{{project.created_at)}}</td>
-    <td>{{project.updated_at)}}</td>
+    <td>{{project.created_at}}</td>
+    <td>{{project.updated_at}}</td>
   </tr>
 {{/each}}

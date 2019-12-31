@@ -3,70 +3,67 @@
 const showResponsibilitiesTemplate = require('../templates/responsibility-listing.handlebars')
 const showResponsibilityTemplate = require('../templates/show-responsibility.handlebars')
 
-$('.after-auth').hide()
-$('.before-auth').show()
-
-const onCrudSuccess = message => {
-  $('#user-message').html()
-  $('#user-message')
+const onRCrudSuccess = message => {
+  $('#user-message-responsibility').html()
+  $('#user-message-responsibility')
     .removeClass('alert-danger', 'alert-success')
     .addClass('alert-success')
     .text(message)
     .show()
 
   setTimeout(function () {
-    $('#user-message').fadeOut('fast')
+    $('#user-message-responsibility').fadeOut('fast')
   }, 3000)
 
   $('form').trigger('reset')
-  $('#user-message').trigger('reset')
+  $('#user-message-responsibility').trigger('reset')
 }
 
-const onCrudFailure = message => {
-  $('#user-message').html()
-  $('#user-message')
+const onRCrudFailure = message => {
+  $('#user-message-responsibility').html()
+  $('#user-message-responsibility')
     .removeClass('alert-success', 'alert-danger')
     .addClass('alert-danger')
     .text(message)
     .show()
 
   setTimeout(function () {
-    $('#user-message').fadeOut('fast').html()
+    $('#user-message-responsibility').fadeOut('fast').html()
   }, 3000)
 }
 
 const onIndexFailure = error => {
-  $('#table-responsibility').find('tbody-responsibility').append(error)
+  $('#table-responsibility').find('#tbody-responsibility').append(error)
 }
 
 const onIndexSuccess = data => {
   const showResponsibilityHtml = showResponsibilitiesTemplate({ responsibilities: data.responsibilities })
 
-  $('#table-responsibility').find('tbody-responsibility').empty()
-  $('#table-responsibility').find('tbody-responsibility').html(showResponsibilityHtml)
-  $('#user-message').empty()
+  $('#table-responsibility').find('#tbody-responsibility').empty()
+  $('#table-responsibility').find('#tbody-responsibility').append(showResponsibilityHtml)
+  $('#user-message-responsibility').empty()
   $('#message').show()
 
-  onCrudSuccess('Successfully retrieved all responsibilities.')
+  onRCrudSuccess('Successfully retrieved all user responsibilities.')
 }
 
 const onShowResponsibilityFailure = () => {
-  onCrudFailure('Enter a valid responsibility ID!')
+  onRCrudFailure('Enter a valid responsibility ID!')
 }
 
 const onShowResponsibilitySuccess = data => {
   const showResponsibilityHtml = showResponsibilityTemplate({ responsibility: data.responsibility })
 
-  $('#table-responsibility').find('tbody-responsibility').empty()
-  $('#table-responsibility').find('tbody-responsibility').html(showResponsibilityHtml)
+  $('#table-responsibility').find('#tbody-responsibility').empty()
+  $('#table-responsibility').find('#tbody-responsibility').html(showResponsibilityHtml)
   $('#user-message').empty()
   $('#message').show()
 
-  onCrudSuccess('You successfully retrieved a responsibility!')
+  onRCrudSuccess('You successfully retrieved a responsibility!')
 }
 
 const onCreateResponsibilitySuccess = data => {
-  onCrudSuccess('You successfully created a new responsibility!')
+  onRCrudSuccess('You successfully created a new responsibility!')
 }
 
 const onCreateResponsibilityFailure = error => {
@@ -77,24 +74,24 @@ const onCreateResponsibilityFailure = error => {
 }
 
 const onUpdateResponsibilitySuccess = data => {
-  onCrudSuccess('Responsibility successfully updated!')
+  onRCrudSuccess('Responsibility successfully updated!')
 }
 
 const onUpdateResponsibilityFailure = data => {
-  onCrudFailure('Error: Responsibility could not be updated.')
+  onRCrudFailure('Error: Responsibility could not be updated.')
 }
 
 const onDeleteResponsibilitySuccess = data => {
-  onCrudSuccess('Responsibility successfully deleted!')
+  onRCrudSuccess('Responsibility successfully deleted!')
 }
 
 const onDeleteResponsibilityFailure = data => {
-  onCrudFailure('Error: Responsibility could not be deleted.')
+  onRCrudFailure('Error: Responsibility could not be deleted.')
 }
 
 module.exports = {
-  onCrudSuccess,
-  onCrudFailure,
+  onRCrudSuccess,
+  onRCrudFailure,
   onIndexFailure,
   onIndexSuccess,
   onShowResponsibilityFailure,
