@@ -121,10 +121,10 @@
       <div class="view-wrapper">
         <h4>View All Responsibilities</h4>
           <form>
-            <button id="index-responsibilities" class="btn btn-primary view-btn">View All</button>
+            <button id="index-responsibilities" class="btn btn-primary">View All</button>
           </form>
           <br>
-        <h4>View Responsibilities</h4>
+        <h4>View a Responsibility</h4>
         <form id="show-responsibility">
           <input name="responsibility[id]" id="responsibility-id" type="number" placeholder="Responsibility ID" required>
           <button class="btn btn-primary">View a Responsibility</button>
@@ -145,8 +145,8 @@
           <h4>Create a Responsibility</h4>
           <br>
           <p>Create a new responsibility. Responsibilities will automatically be assigned to the user.</p>
-          <form id="create-responsibilities">
-            <input name="responsibility[name]" type="text" placeholder="Title" required>
+          <form id="create-responsibility">
+            <input name="responsibility[title]" type="text" placeholder="Title" required>
             <input name="responsibility[description]" type="text" placeholder="Include description here">
             <button type="submit" class="btn btn-success">Create Project</button>
           </form>
@@ -172,7 +172,7 @@
           <th scope="col">Owner</th>
         </tr>
       </thead>
-      <tbody id=tbody-responsibility></tbody>
+      <tbody id="tbody-responsibility"></tbody>
     </table>
   </main>
 

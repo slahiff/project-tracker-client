@@ -4,12 +4,6 @@ const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 
-// loads page with responsibility index
-window.onload = function () {
-  onIndexResponsibilities()
-}
-// Responsibilities
-
 const onIndexResponsibilities = () => {
   event.preventDefault()
 
@@ -23,7 +17,7 @@ const onShowResponsibility = event => {
   const form = event.target
   const responsibilityData = getFormFields(form)
 
-  api.showresponsibility(responsibilityData)
+  api.showResponsibility(responsibilityData)
     .then(ui.onShowResponsibilitySuccess)
     .catch(ui.onShowResponsibilityFailure)
 }
