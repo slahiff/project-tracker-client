@@ -47,3 +47,11 @@ The Project Tracker app makes it easy for teams & departments to keep on top of 
 - A user should be able to view just their projects.
 - A user should be able to delete a project (where they are the owner).
 - A user should be able to update the name, description, and status attributes of an existing project (where they are the owner).
+
+#### Additional Features
+Second Resource added (Responsibilities)
+- A user should be able to view all responsibilities.
+- A user should be able to view a specific responsibility.
+- A user should be able to create a responsibility attributed to themself.
+- A user should be able to update a responsibility attributed to themself.
+- A user should be able to delete a responsibilityattributed to themself.
