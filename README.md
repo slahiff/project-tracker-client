@@ -17,6 +17,7 @@ The Project Tracker app makes it easy for teams & departments to keep on top of 
 - jQuery
 - AJAX
 - Bootstrap
+- Handlebars
 - HTML
 - Sass
 - Shell (cURL scripts)
