@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Project Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container--fluid">
+  <h1>Project Tracker</h1>
+  <div id="message" class="message"></div>
+  <header class="before-auth">
+    <div class="before-auth-wrapper">
+      <h5>Sign In</h5>
+      <form id="sign-in">
+        <input type="email" name="credentials[email]" placeholder="Email" required>
+        <input type="password" name="credentials[password]" placeholder="Password" required>
+        <button class="btn btn-primary">Submit</button>
+      </form>
+      <h5>Not a member? Sign Up Here!</h5>
+      <form id="sign-up">
+        <input type="email" name="credentials[email]" placeholder="Email" required>
+        <input type="password" name="[credentials[password]" placeholder="Password" required>
+        <input type="password" name="[credentials[password_confirmation]" placeholder="Password confirmation" required>
+        <button class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </header>
+  <main>
+    <br>
+    <div class="flex-container">
+      <div class="view-wrapper">
+        <h4>View All Projects</h4>
+          <form>
+            <button id="index" class="btn btn-primary view-btn">View All</button>
+          </form>
+          <br>
+          <!-- NOT WORKING YET<form id="show-user-projects">
+            <button class="btn btn-primary view-btn after-auth">Get My Projects</button>
+          </form> -->
+        <h4>View A Project</h4>
+        <form id="show-project">
+          <!-- <label for="project-id">Enter an ID</label> -->
+          <input name="project[id]" id="project-id" type="number" placeholder="Project ID" required>
+          <button class="btn btn-primary">View a Project</button>
+        </form>
+      </div>
+        <div class="update-wrapper after-auth">
+          <h4>Update a Project</h4>
+          <form id="update-project">
+            <p>Enter the project ID of the project you wish to update. Users can only update projects where they are the assigned owner.</p>
+            <input name="project[id]" id="project-id-update" type="number" placeholder="Project ID" required>
+            <input name="project[name]" type="text" placeholder="Title">
+            <!-- <textarea name="Description" placeholder="Project Description"></textarea> -->
+            <input name="project[description]" type="text" placeholder="Description">
+            <select name="project[status]" id="status-list-create">
+              <option value="Not Started">Not Started</option>
+              <option value="Under Review">Under Review</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Complete">Complete</option>
+              <option value="On Hold">On Hold</option>
+            </select>
+            <button type="submit" class="btn btn-success btn-update">Update Project</button>
+          </form>
+        </div>
+
+        <div class="create-wrapper after-auth">
+          <h4>Create a Project</h4>
+          <br>
+          <p>Create a new project. Projects will automatically be assigned to the user.</p>
+          <form id="create-project">
+            <input name="project[name]" type="text" placeholder="Title" required>
+            <input name="project[description]" type="text" placeholder="Description">
+            <select name=project[status] required>
+              <option value="Not Started">Not Started</option>
+              <option value="Under Review">Under Review</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Complete">Complete</option>
+              <option value="On Hold">On Hold</option>
+            </select>
+            <button type="submit" class="btn btn-success">Create Project</button>
+          </form>
+        </div>
+
+        <div class="delete-wrapper after-auth">
+          <h4>Delete a Project</h4>
+          <br>
+          <p>Users can only delete projects where they are assigned the owner.</p>
+          <form id="destroy-project">
+            <!-- <label for="project-id-delete">Enter an ID</label> -->
+            <input name="project[id]" id="project-id-id" type="number" placeholder="Project ID" required>
+            <button class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    <div id="user-message" class="user-message"></div>
+    <table id="table" class="table table-striped table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Project ID</th>
+          <th scope="col">Title</th>
+          <th scope="col">Status</th>
+          <th scope="col">Owner</th>
+          <th scope="col">Created On</th>
+          <th scope="col">Last Updated</th>
+        </tr>
+      </thead>
+      <tbody id=tbody></tbody>
+    </table>
+
+    <div class="flex-container">
+      <div class="view-wrapper">
+        <h4>View All Responsibilities</h4>
+          <form>
+            <button id="index-responsibilities" class="btn btn-primary">View All</button>
+          </form>
+          <br>
+        <h4>View a Responsibility</h4>
+        <form id="show-responsibility">
+          <input name="responsibility[id]" id="responsibility-id" type="number" placeholder="Responsibility ID" required>
+          <button class="btn btn-primary">View a Responsibility</button>
+        </form>
+      </div>
+        <div class="update-wrapper after-auth">
+          <h4>Update a Responsibility</h4>
+          <form id="update-responsibility">
+            <p>Enter the responsibility ID of the responsibilities you wish to update. Users can only update responsibilities where they are the assigned owner.</p>
+            <input name="responsibility[id]" id="responsibility-id-update" type="number" placeholder="Responsibility ID" required>
+            <input name="responsibility[title]" type="text" placeholder="Title">
+            <input name="responsibility[description]" type="text" placeholder="Description">
+            <button type="submit" class="btn btn-success btn-update">Update Responsibility</button>
+          </form>
+        </div>
+
+        <div class="create-wrapper after-auth">
+          <h4>Create a Responsibility</h4>
+          <br>
+          <p>Create a new responsibility. Responsibilities will automatically be assigned to the user.</p>
+          <form id="create-responsibility">
+            <input name="responsibility[title]" type="text" placeholder="Title" required>
+            <input name="responsibility[description]" type="text" placeholder="Include description here">
+            <button type="submit" class="btn btn-success">Create Project</button>
+          </form>
+        </div>
+
+        <div class="delete-wrapper after-auth">
+          <h4>Delete a Responsibility</h4>
+          <br>
+          <p>Users can only delete responsibilities where they are assigned the owner.</p>
+          <form id="destroy-responsibility">
+            <input name="responsibility[id]" id="responsibility-id-id" type="number" placeholder="Responsibility ID" required>
+            <button class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    <div id="user-message-responsibility" class="user-message-responsibility"></div>
+    <table id="table-responsibility" class="table table-striped table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Owner</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-responsibility"></tbody>
+    </table>
+  </main>
+
+    <div class="change-pw-wrapper after-auth">
+      <h5>Change Password</h5>
+      <form id="change-password">
+        <input type="password" name="passwords[old]" placeholder="Current Password" required>
+        <input type="password" name="passwords[new]" placeholder="New Password">
+        <button class="btn btn-primary">Submit</button>
+      </form>
+      <form id="sign-out">
+        <button class="btn btn-secondary">Sign Out</button>
+      </form>
+    </div>
+</body>
+
+</html>
