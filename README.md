@@ -52,6 +52,6 @@ The Project Tracker app makes it easy for teams & departments to keep on top of 
 Second Resource added (Responsibilities)
 - A user should be able to view all responsibilities.
 - A user should be able to view a specific responsibility.
-- A user should be able to create a responsibility attributed to themself.
-- A user should be able to update a responsibility attributed to themself.
-- A user should be able to delete a responsibilityattributed to themself.
+- A user should be able to create a responsibility attributed to themself only when signed in.
+- A user should be able to update a responsibility attributed to themself only when signed in..
+- A user should be able to delete a responsibilityattributed to themself only when signed in..
