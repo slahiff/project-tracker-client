@@ -116,6 +116,64 @@
       </thead>
       <tbody id=tbody></tbody>
     </table>
+
+    <div class="flex-container">
+      <div class="view-wrapper">
+        <h4>View All Responsibilities</h4>
+          <form>
+            <button id="index-responsibilities" class="btn btn-primary view-btn">View All</button>
+          </form>
+          <br>
+        <h4>View Responsibilities</h4>
+        <form id="show-responsibility">
+          <input name="responsibility[id]" id="responsibility-id" type="number" placeholder="Responsibility ID" required>
+          <button class="btn btn-primary">View a Responsibility</button>
+        </form>
+      </div>
+        <div class="update-wrapper after-auth">
+          <h4>Update a Responsibility</h4>
+          <form id="update-responsibility">
+            <p>Enter the responsibility ID of the responsibilities you wish to update. Users can only update responsibilities where they are the assigned owner.</p>
+            <input name="responsibility[id]" id="responsibility-id-update" type="number" placeholder="Responsibility ID" required>
+            <input name="responsibility[title]" type="text" placeholder="Title">
+            <input name="responsibility[description]" type="text" placeholder="Description">
+            <button type="submit" class="btn btn-success btn-update">Update Responsibility</button>
+          </form>
+        </div>
+
+        <div class="create-wrapper after-auth">
+          <h4>Create a Responsibility</h4>
+          <br>
+          <p>Create a new responsibility. Responsibilities will automatically be assigned to the user.</p>
+          <form id="create-responsibilities">
+            <input name="responsibility[name]" type="text" placeholder="Title" required>
+            <input name="responsibility[description]" type="text" placeholder="Include description here">
+            <button type="submit" class="btn btn-success">Create Project</button>
+          </form>
+        </div>
+
+        <div class="delete-wrapper after-auth">
+          <h4>Delete a Responsibility</h4>
+          <br>
+          <p>Users can only delete responsibilities where they are assigned the owner.</p>
+          <form id="destroy-responsibility">
+            <input name="responsibility[id]" id="responsibility-id-id" type="number" placeholder="Responsibility ID" required>
+            <button class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    <div id="user-message-responsibility" class="user-message-responsibility"></div>
+    <table id="table-responsibility" class="table table-striped table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Owner</th>
+        </tr>
+      </thead>
+      <tbody id=tbody-responsibility></tbody>
+    </table>
   </main>
 
     <div class="change-pw-wrapper after-auth">
