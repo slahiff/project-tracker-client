@@ -53,5 +53,5 @@ Second Resource added (Responsibilities)
 - A user should be able to view all responsibilities.
 - A user should be able to view a specific responsibility.
 - A user should be able to create a responsibility attributed to themself only when signed in.
-- A user should be able to update a responsibility attributed to themself only when signed in..
-- A user should be able to delete a responsibilityattributed to themself only when signed in..
+- A user should be able to update a responsibility attributed to themself only when signed in.
+- A user should be able to delete a responsibilityattributed to themself only when signed in.
