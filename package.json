@@ -7,9 +7,13 @@
     "content": "CC­BY­NC­SA 4.0"
   },
   "dependencies": {
+    "acorn": "^7.2.0",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.1.2",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.1",
+    "kind-of": "^6.0.3",
+    "latest": "^0.2.0",
+    "minimist": "^1.2.5",
     "popper.js": "^1.14.3"
   },
   "devDependencies": {
